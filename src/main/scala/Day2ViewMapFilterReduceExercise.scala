@@ -2,7 +2,7 @@ package com.github.Eleonora8510
 
 import scala.io.StdIn.readLine
 
-object Day2ViewMapFilterReduceExercise {
+object Day2ViewMapFilterReduceExercise extends App{
   println("Ask user for input")
   val number = readLine("Please Enter a number ").toInt // you could add error checking
   println(number)
