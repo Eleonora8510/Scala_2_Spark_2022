@@ -25,9 +25,10 @@ object Day13MongoDB_Exercise extends App{
 
   //TODO find ALL restaurants in Manhattan offering barbeque OR BBQ  in name (maybe try cuisine as well)
 
-  val allRestaurants = collection.find(or(Filters.regex("name", ".*(b|B)arbe(q|c)ue.*"),
-                                       Filters.regex("name", ".*B(b|B)(q|Q).*"),
-                                      Filters.regex("cuisine", ".*(B|b)arbe(c|q)ue.*")))
+  val allRestaurants = collection.find(and(equal("borough", "Manhattan"),
+                                    or(Filters.regex("name", ".*(b|B)arbe(q|c)ue.*"),
+                                           Filters.regex("name", ".*B(b|B)(q|Q).*"),
+                                         Filters.regex("cuisine", ".*(B|b)arbe(c|q)ue.*"))))
     .subscribe((doc: Document) => {
       resultsBuffer += doc
     },
