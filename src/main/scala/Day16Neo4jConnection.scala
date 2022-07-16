@@ -10,7 +10,6 @@ case class Movie(
                  released: Int,
                  tagline: String
                  )
-//case class Movie(title: String)
 
 object Day16Neo4jConnection extends App{
   println("Let's connect to our Neo4J database!")
@@ -47,6 +46,7 @@ object Day16Neo4jConnection extends App{
   //TODO print earliest 10 movies in this database
 
   //val queryMovies = "MATCH (m:Movie {title: 'The Matrix'}) RETURN m as movie"
+
   val queryMovies = "MATCH (m:Movie) RETURN m as movie"
   val resultMovies = session.run(queryMovies, parameters())
 
